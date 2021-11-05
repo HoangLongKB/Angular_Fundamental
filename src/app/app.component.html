@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Fundamental</title>
+</head>
+<body>
+  <ul *ngFor="let passenger of passengers; let i = index">
+    <li>
+     <label class="status" [ngClass]="{
+       'check-in': passenger.isCheckIn,
+       'check-out': !passenger.isCheckIn
+     }"></label>
+     {{ passenger.fullname }}
+     <div class="check-in-date">
+       Check In Date: 
+       {{ passenger.isCheckIn ? ( passenger.checkInDate  | date ) : 'Not Check In Yet!' }}
+      </div>
+    </li>
+  </ul>
+</body>
+</html>
